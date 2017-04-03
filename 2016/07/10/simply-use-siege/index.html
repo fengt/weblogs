@@ -1,0 +1,788 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="siege," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Siege是一个压力测试和评测工具，可以根据配置对一个WEB站点进行多用户的并发访问，记录每个用户所有请求过程的相应时间，并在预定义并发量下重复进行。siege可以从预定义列表中获取随机的URL，所以siege可用于仿真用户请求负载。
+1. 请求参数详解123456789101112131415161718192021222324-C,或–config 在屏幕上打印显示出当前的配置，配置是包括在他">
+<meta property="og:type" content="article">
+<meta property="og:title" content="siege的简单使用">
+<meta property="og:url" content="http://yoursite.com/2016/07/10/simply-use-siege/index.html">
+<meta property="og:site_name" content="FengTao's Blog">
+<meta property="og:description" content="Siege是一个压力测试和评测工具，可以根据配置对一个WEB站点进行多用户的并发访问，记录每个用户所有请求过程的相应时间，并在预定义并发量下重复进行。siege可以从预定义列表中获取随机的URL，所以siege可用于仿真用户请求负载。
+1. 请求参数详解123456789101112131415161718192021222324-C,或–config 在屏幕上打印显示出当前的配置，配置是包括在他">
+<meta property="og:updated_time" content="2016-12-27T14:26:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="siege的简单使用">
+<meta name="twitter:description" content="Siege是一个压力测试和评测工具，可以根据配置对一个WEB站点进行多用户的并发访问，记录每个用户所有请求过程的相应时间，并在预定义并发量下重复进行。siege可以从预定义列表中获取随机的URL，所以siege可用于仿真用户请求负载。
+1. 请求参数详解123456789101112131415161718192021222324-C,或–config 在屏幕上打印显示出当前的配置，配置是包括在他">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/10/simply-use-siege/"/>
+
+
+
+
+
+  <title> siege的简单使用 | FengTao's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">FengTao's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Thinking on the road</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/10/simply-use-siege/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FengTao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FengTao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                siege的简单使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-10T00:00:00+08:00">
+                2016-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技能/" itemprop="url" rel="index">
+                    <span itemprop="name">技能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://www.joedog.org" target="_blank" rel="external">Siege</a>是一个压力测试和评测工具，可以根据配置对一个WEB站点进行多用户的并发访问，记录每个用户所有请求过程的相应时间，并在预定义并发量下重复进行。siege可以从预定义列表中获取随机的URL，所以siege可用于仿真用户请求负载。</p>
+<h3 id="1-请求参数详解"><a href="#1-请求参数详解" class="headerlink" title="1. 请求参数详解"></a>1. 请求参数详解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">-C,或–config 在屏幕上打印显示出当前的配置，配置是包括在他的配置文件$HOME/.siegerc中，可以编辑里面的参数，这样每次siege 都会按照它运行</div><div class="line"></div><div class="line">-v 运行时能看到详细的运行信息</div><div class="line"></div><div class="line">-c n,或–concurrent=n 模拟有n个用户在同时访问，n不要设得太大，因为越大，siege消耗本地机器的资源越多</div><div class="line"></div><div class="line">-i,–internet 随机访问urls.txt中的url列表项，以此模拟真实的访问情况(随机性)，当urls.txt存在是有效</div><div class="line"></div><div class="line">-d n,–delay=n hit每个url之间的延迟，在0-n之间</div><div class="line"></div><div class="line">-r n,–reps=n 重复运行测试n次，不能与-t同时存在</div><div class="line"></div><div class="line">-t n,–time=n 持续运行siege ‘n’秒(如10S)，分钟(10M)，小时(10H)</div><div class="line"></div><div class="line">-l 运行结束，将统计数据保存到日志文件中siege.log，一般位于/usr/local/var/siege .log中，也可在.siegerc中自定义</div><div class="line"></div><div class="line">-R SIEGERC,–rc=SIEGERC 指定用特定的siege配置文件来运行，默认的为$HOME/.siegerc</div><div class="line"></div><div class="line">-f FILE, –file=FILE 指定用特定的urls文件运行siege，默认为urls.txt，位于siege安装目录下的etc/urls.txt</div><div class="line"></div><div class="line">-u URL,–url=URL 测试指定的一个URL，对它进行”siege “，此选项会忽略有关urls文件的设定</div><div class="line"></div><div class="line">urls.txt文件：是很多行待测试URL的列表以换行符断开,格式为:</div><div class="line">[protocol://]host.domain.com[:port][path/to/file]</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="2-使用说明"><a href="#2-使用说明" class="headerlink" title="2. 使用说明"></a>2. 使用说明</h3><ul>
+<li><p>10个用户并发，重复10次，无参数的GET请求100次</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">siege -c 10 -r 10 https://mysever.com/api</div></pre></td></tr></table></figure>
+</li>
+<li><p>10个用户并发，重复10次，有参数的GET请求100次</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">siege -c 10 -r 10 https://mysever.com/api?echoParams=all&amp;indent=true&amp;start=0</div></pre></td></tr></table></figure>
+</li>
+<li><p>10个用户并发，重复10次，json格式参数的POST请求100次<strong>（注意引号）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">siege -H &apos;Content-Type: application/json&apos; -c 10 -r 10 &apos;http://mysever.com/api?echoParams=all&amp;indent=true&amp;start=0 POST &#123;&quot;param1&quot;:&quot;green&quot;,&quot;param2&quot;:&quot;brs&quot;&#125;&apos;</div></pre></td></tr></table></figure>
+</li>
+<li><p>从文件中读取json格式的数据发送POST请求100次（-g参数用于测试）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">siege -H &apos;Content-Type: application/json&apos; -g &apos;http://mysever.com/api?echoParams=all&amp;indent=true&amp;start=0 POST &lt; /home/mypost.txt&apos;</div></pre></td></tr></table></figure>
+</li>
+<li><p>有token值和json格式参数的POST请求（从文件中读取）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">siege -H &apos;Content-Type: application/json&apos; --header=&quot;token:mytoken&quot; -g &apos;https://mysever.com/api POST &lt; /home/mypost.txt&apos;</div></pre></td></tr></table></figure>
+</li>
+<li><p>10个用户并发，重复10次，从文件中读取数据发送POST请求，并将压测结果输出到指定文件result.txt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">siege -c 10 -r 10 &apos;https://mysever.com/api POST &lt; /home/mypost.txt&apos; &gt;home/result.txt 2&gt;&amp;1</div></pre></td></tr></table></figure>
+</li>
+<li><p><em>mypost.txt内容如下：</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&quot;param1&quot;:&quot;green&quot;,&quot;param2&quot;:&quot;brs&quot;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3-结果参数说明"><a href="#3-结果参数说明" class="headerlink" title="3. 结果参数说明"></a>3. 结果参数说明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Transactions: //完成多少次处理</div><div class="line"></div><div class="line">Availability: //成功率%</div><div class="line"></div><div class="line">Elapsed time: //总共使用时间secs</div><div class="line"></div><div class="line">Data transferred: //总数据传输M（不包含头数据）</div><div class="line"></div><div class="line">Response time: //平均响应时间secs</div><div class="line"></div><div class="line">Transaction rate: //平均每秒完成多少次处理trans/sec</div><div class="line"></div><div class="line">Throughput: //平均每秒传送数据MB/sec</div><div class="line"></div><div class="line">Concurrency: //实际最高并发连接数</div><div class="line"></div><div class="line">Successful transactions: //成功处理次数</div><div class="line"></div><div class="line">Failed transactions: //失败处理次数</div><div class="line"></div><div class="line">Longest transaction: //满足一个请求所需最长时间</div><div class="line"></div><div class="line">Shortest transaction: //满足一个请求所需最短时间</div></pre></td></tr></table></figure>
+<p>根据结果参数可简单对web或接口等压测进行分析，具体siege的参数说明可参阅man文档及<a href="http://www.joedog.org" target="_blank" rel="external">官网</a>。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/siege/" rel="tag"># siege</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/01/git-in-common-use/" rel="next" title="git常用命令">
+                <i class="fa fa-chevron-left"></i> git常用命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/10/heart-you-should-know/" rel="prev" title="你不知的心声">
+                你不知的心声 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="FengTao" />
+          <p class="site-author-name" itemprop="name">FengTao</p>
+           
+              <p class="site-description motion-element" itemprop="description">Think big, start small, act fast</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/fengt" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/fengtao009" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1855245543" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/halcyon_douban" target="_blank" title="Douban">
+                  
+                    <i class="fa fa-fw fa-douban"></i>
+                  
+                  Douban
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-请求参数详解"><span class="nav-number">1.</span> <span class="nav-text">1. 请求参数详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用说明"><span class="nav-number">2.</span> <span class="nav-text">2. 使用说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-结果参数说明"><span class="nav-number">3.</span> <span class="nav-text">3. 结果参数说明</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FengTao</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

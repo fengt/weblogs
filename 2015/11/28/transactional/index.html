@@ -1,0 +1,841 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1. Spring定义事务属性几种方式
+事务的传播行为(Propagation Behavisor)
+
+required: 支持当前事务，如果当前没有事务，就新建一个事务（默认）
+
+supports: 支持当前事务，如果当前没有事务，就以非事务方式执行
+
+mandatory: 支持当前事务，如果当前没有事务，就抛出异常
+
+requires_new: 新建事务，如果当前存在事务，把当前事务挂起
+
+n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="事务浅识">
+<meta property="og:url" content="http://yoursite.com/2015/11/28/transactional/index.html">
+<meta property="og:site_name" content="FengTao's Blog">
+<meta property="og:description" content="1. Spring定义事务属性几种方式
+事务的传播行为(Propagation Behavisor)
+
+required: 支持当前事务，如果当前没有事务，就新建一个事务（默认）
+
+supports: 支持当前事务，如果当前没有事务，就以非事务方式执行
+
+mandatory: 支持当前事务，如果当前没有事务，就抛出异常
+
+requires_new: 新建事务，如果当前存在事务，把当前事务挂起
+
+n">
+<meta property="og:updated_time" content="2016-12-27T14:26:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="事务浅识">
+<meta name="twitter:description" content="1. Spring定义事务属性几种方式
+事务的传播行为(Propagation Behavisor)
+
+required: 支持当前事务，如果当前没有事务，就新建一个事务（默认）
+
+supports: 支持当前事务，如果当前没有事务，就以非事务方式执行
+
+mandatory: 支持当前事务，如果当前没有事务，就抛出异常
+
+requires_new: 新建事务，如果当前存在事务，把当前事务挂起
+
+n">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/11/28/transactional/"/>
+
+
+
+
+
+  <title> 事务浅识 | FengTao's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">FengTao's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Thinking on the road</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/28/transactional/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FengTao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FengTao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                事务浅识
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-28T00:00:00+08:00">
+                2015-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技能/" itemprop="url" rel="index">
+                    <span itemprop="name">技能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-Spring定义事务属性几种方式"><a href="#1-Spring定义事务属性几种方式" class="headerlink" title="1. Spring定义事务属性几种方式"></a>1. Spring定义事务属性几种方式</h2><ul>
+<li><p>事务的传播行为(Propagation Behavisor)</p>
+<ul>
+<li><p><code>required: 支持当前事务，如果当前没有事务，就新建一个事务（默认）</code></p>
+</li>
+<li><p><code>supports: 支持当前事务，如果当前没有事务，就以非事务方式执行</code></p>
+</li>
+<li><p><code>mandatory: 支持当前事务，如果当前没有事务，就抛出异常</code></p>
+</li>
+<li><p><code>requires_new: 新建事务，如果当前存在事务，把当前事务挂起</code></p>
+</li>
+<li><p><code>not_supported: 以非事务方式执行操作，如果当前存在事务，就把当前事务挂起</code></p>
+</li>
+<li><p><code>never: 以非事务方式执行，如果当前存在事务，则抛出异常</code></p>
+</li>
+<li><p><code>nested: 如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与propagation_required类似的操作</code></p>
+</li>
+</ul>
+</li>
+<li><p><a href="http://uule.iteye.com/blog/1445678" target="_blank" rel="external">事务的隔离级别(Isolation)</a></p>
+</li>
+<li><p>事务的超时时间(Timeout)</p>
+</li>
+<li><p>是否为只读事务(ReadOnly)</p>
+</li>
+</ul>
+<a id="more"></a>
+<h2 id="2-Dao-or-Service配置事务"><a href="#2-Dao-or-Service配置事务" class="headerlink" title="2. Dao or Service配置事务"></a>2. Dao or Service配置事务</h2><blockquote>
+<p>Spring事务为业务逻辑进行事务管理，保证业务逻辑上数据的原子性。</p>
+</blockquote>
+<p>事务得根据项目性质来细分：事务可以设置到三个层面(dao层、service层和web层)。 </p>
+<ul>
+<li><p><em>web层事务，这一般是针对那些安全性要求较高的系统来说的。例如电子商务网站。粒度小，一般系统用不着这么细</em></p>
+</li>
+<li><p><em>service层事务，这是一常见的事务划分， 将事务设置在业务逻辑上，只要业务逻辑出错或异常就事务回滚。粒度较小，一般推荐这种方式</em></p>
+</li>
+<li><p><em>数据持久层数据务，也就是常说的数据库事务。这种事务在安全性方面要求低。就是给一个简单的增删改之类的操作增加事务操作。粒度大</em></p>
+</li>
+</ul>
+<p>给Service层配置事务，因为一个Service层方法操作可以关联到多个DAO的操作。在Service层执行这些Dao操作，多DAO操作有失败全部回滚，成功则全部提交。</p>
+<p>Dao层数据访问层，是不应该包含业务逻辑的，这就是和Service层的不同；Service层就是业务逻辑层，事务的管理就是为Service层上的保证。</p>
+<h2 id="3-事务传播"><a href="#3-事务传播" class="headerlink" title="3. 事务传播"></a>3. 事务传播</h2><blockquote>
+<p>事务传播指service方法调用另一个service方式时，被调用方法的事务行为。</p>
+</blockquote>
+<p>这种行为分为两种调用方式来区分：</p>
+<ul>
+<li><p><em>service内部方法间调用：被调用方法设定的事务行为将会失效，事务行为由最外层方法设置的事务行为控制</em></p>
+</li>
+<li><p><em>一个service调用另一个service的方法：当两个service方法不属于同一个事务时，被调用方法出现的异常时不会导致外部方法事务回滚，但会使外部方法执行出现异常（可选择是否捕获）；如果是属于同一个事务，外部方法捕获异常将会导致被调用方法不回滚。</em></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/30/a-starry-sky/" rel="next" title="星空，六月末的惊喜">
+                <i class="fa fa-chevron-left"></i> 星空，六月末的惊喜
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/01/git-in-common-use/" rel="prev" title="git常用命令">
+                git常用命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="FengTao" />
+          <p class="site-author-name" itemprop="name">FengTao</p>
+           
+              <p class="site-description motion-element" itemprop="description">Think big, start small, act fast</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/fengt" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/fengtao009" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1855245543" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/halcyon_douban" target="_blank" title="Douban">
+                  
+                    <i class="fa fa-fw fa-douban"></i>
+                  
+                  Douban
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Spring定义事务属性几种方式"><span class="nav-number">1.</span> <span class="nav-text">1. Spring定义事务属性几种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Dao-or-Service配置事务"><span class="nav-number">2.</span> <span class="nav-text">2. Dao or Service配置事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-事务传播"><span class="nav-number">3.</span> <span class="nav-text">3. 事务传播</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FengTao</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
