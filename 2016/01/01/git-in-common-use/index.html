@@ -92,17 +92,15 @@
 
 1$ git clone -b &amp;lt;branch&amp;gt; &amp;lt;remote_repo&amp;gt;
 
+添加远程主机(rhost)的仓库
+
+1$ git remote add rhost https://github.com/xxx/demo.git
+
 显示远程主机详细信息
 
 1$ git remote show origin
 
-推送新分支dev到远程主机分支dev
-
-1$ git push origin dev:dev
-
-标签推送
-
-123$ git push origin v1.5or$ git push">
+推送新分支dev到远程主机分支de">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git常用命令">
 <meta property="og:url" content="http://yoursite.com/2016/01/01/git-in-common-use/index.html">
@@ -112,18 +110,16 @@
 
 1$ git clone -b &amp;lt;branch&amp;gt; &amp;lt;remote_repo&amp;gt;
 
+添加远程主机(rhost)的仓库
+
+1$ git remote add rhost https://github.com/xxx/demo.git
+
 显示远程主机详细信息
 
 1$ git remote show origin
 
-推送新分支dev到远程主机分支dev
-
-1$ git push origin dev:dev
-
-标签推送
-
-123$ git push origin v1.5or$ git push">
-<meta property="og:updated_time" content="2016-12-27T14:26:39.000Z">
+推送新分支dev到远程主机分支de">
+<meta property="og:updated_time" content="2017-04-04T02:47:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git常用命令">
 <meta name="twitter:description" content="1. 远程操作
@@ -131,17 +127,15 @@
 
 1$ git clone -b &amp;lt;branch&amp;gt; &amp;lt;remote_repo&amp;gt;
 
+添加远程主机(rhost)的仓库
+
+1$ git remote add rhost https://github.com/xxx/demo.git
+
 显示远程主机详细信息
 
 1$ git remote show origin
 
-推送新分支dev到远程主机分支dev
-
-1$ git push origin dev:dev
-
-标签推送
-
-123$ git push origin v1.5or$ git push">
+推送新分支dev到远程主机分支de">
 
 
 
@@ -403,6 +397,10 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone -b &lt;branch&gt; &lt;remote_repo&gt;</div></pre></td></tr></table></figure>
 <ul>
+<li><em>添加远程主机(rhost)的仓库</em></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote add rhost https://github.com/xxx/demo.git</div></pre></td></tr></table></figure>
+<ul>
 <li><em>显示远程主机详细信息</em></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote show origin</div></pre></td></tr></table></figure>
@@ -420,6 +418,10 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b dev</div><div class="line">or</div><div class="line">$ git branch dev</div><div class="line">$ git checkout dev</div></pre></td></tr></table></figure>
 <ul>
+<li><em>查看别人推送分支并与本地建立追踪</em></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git fetch</div><div class="line">$ git checkout -t origin/branch</div></pre></td></tr></table></figure>
+<ul>
 <li><em>重命名分支dev为develop</em></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -m dev develop</div></pre></td></tr></table></figure>
@@ -428,10 +430,38 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -v</div></pre></td></tr></table></figure>
 <ul>
+<li><em>放弃当前正在合并分支</em></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git merge --abort</div><div class="line">or</div><div class="line">$ git reset --merge MERGE_HEAD</div></pre></td></tr></table></figure>
+<ul>
 <li><em>删除分支</em></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -d [name]</div></pre></td></tr></table></figure>
-<h3 id="3-git-stash-用法"><a href="#3-git-stash-用法" class="headerlink" title="3. git stash 用法"></a>3. git stash 用法</h3><ul>
+<ul>
+<li><em>先预览(加参数-n)，剔除版本控制</em></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git rm -f -n --cached .DS_Store</div><div class="line">$ git rm -f --cached .DS_Store</div></pre></td></tr></table></figure>
+<ul>
+<li><em>查看文件的每一行是哪个提交最后修改的</em></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git blame filename</div></pre></td></tr></table></figure>
+<ul>
+<li><em>查看今天或截止6天前写了多少行代码</em></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git diff --shortstat</div><div class="line">or</div><div class="line">$ git diff --shortstat &quot;@&#123;6 day ago&#125;&quot;</div></pre></td></tr></table></figure>
+<h3 id="4-git-log操作"><a href="#4-git-log操作" class="headerlink" title="4. git log操作"></a>4. git log操作</h3><ul>
+<li><em>查看文件的每一个详细的历史修改，如果没有-p选项，只显示提交记录，不显示文件内容修改，git log -p -3 filename 显示最近的3次提交</em></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log -p filename</div></pre></td></tr></table></figure>
+<ul>
+<li><em>每一行显示一个提交，先显示哈希码，再显示提交说明</em></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log --pretty=oneline filename</div></pre></td></tr></table></figure>
+<ul>
+<li><em>查看自己某人最后提交的N条记录</em></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git log —oneline -n 5 —author=username</div><div class="line">or </div><div class="line">$ git log -n 5 —author=username</div></pre></td></tr></table></figure>
+<h3 id="4-git-stash-用法"><a href="#4-git-stash-用法" class="headerlink" title="4. git stash 用法"></a>4. git stash 用法</h3><ul>
 <li><em>备份当前的工作区的内容，从最近的一次提交中读取相关内容，让工作区保证和上次提交的内容一致。同时，将当前的工作区内容保存到Git栈中</em></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash</div></pre></td></tr></table></figure>
@@ -676,7 +706,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-远程操作"><span class="nav-number">1.</span> <span class="nav-text">1. 远程操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-本地操作"><span class="nav-number">2.</span> <span class="nav-text">2. 本地操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-git-stash-用法"><span class="nav-number">3.</span> <span class="nav-text">3. git stash 用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-远程操作"><span class="nav-number">1.</span> <span class="nav-text">1. 远程操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-本地操作"><span class="nav-number">2.</span> <span class="nav-text">2. 本地操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-git-log操作"><span class="nav-number">3.</span> <span class="nav-text">4. git log操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-git-stash-用法"><span class="nav-number">4.</span> <span class="nav-text">4. git stash 用法</span></a></li></ol></div>
             
 
           </div>
