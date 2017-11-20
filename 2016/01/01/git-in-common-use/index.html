@@ -87,7 +87,7 @@
 
 
 
-<meta name="description" content="1. 远程操作
+<meta name="description" content="远程操作
 克隆某分支仓库
 
 1$ git clone -b &amp;lt;branch&amp;gt; &amp;lt;remote_repo&amp;gt;
@@ -100,12 +100,12 @@
 
 1$ git remote show origin
 
-推送新分支dev到远程主机分支de">
+推送新分支dev到远程主机分支dev">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git常用命令">
 <meta property="og:url" content="http://yoursite.com/2016/01/01/git-in-common-use/index.html">
 <meta property="og:site_name" content="FengTao's Blog">
-<meta property="og:description" content="1. 远程操作
+<meta property="og:description" content="远程操作
 克隆某分支仓库
 
 1$ git clone -b &amp;lt;branch&amp;gt; &amp;lt;remote_repo&amp;gt;
@@ -118,11 +118,11 @@
 
 1$ git remote show origin
 
-推送新分支dev到远程主机分支de">
-<meta property="og:updated_time" content="2017-04-04T02:47:47.000Z">
+推送新分支dev到远程主机分支dev">
+<meta property="og:updated_time" content="2017-11-20T14:18:48.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git常用命令">
-<meta name="twitter:description" content="1. 远程操作
+<meta name="twitter:description" content="远程操作
 克隆某分支仓库
 
 1$ git clone -b &amp;lt;branch&amp;gt; &amp;lt;remote_repo&amp;gt;
@@ -135,7 +135,7 @@
 
 1$ git remote show origin
 
-推送新分支dev到远程主机分支de">
+推送新分支dev到远程主机分支dev">
 
 
 
@@ -392,7 +392,7 @@
       
 
       
-        <h3 id="1-远程操作"><a href="#1-远程操作" class="headerlink" title="1. 远程操作"></a>1. 远程操作</h3><ul>
+        <h3 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h3><ul>
 <li><em>克隆某分支仓库</em></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone -b &lt;branch&gt; &lt;remote_repo&gt;</div></pre></td></tr></table></figure>
@@ -413,7 +413,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git push origin v1.5</div><div class="line">or</div><div class="line">$ git push origin --tags</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="2-本地操作"><a href="#2-本地操作" class="headerlink" title="2. 本地操作"></a>2. 本地操作</h3><ul>
+<h3 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h3><ul>
 <li><em>新建分支dev并切换到该分支</em></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b dev</div><div class="line">or</div><div class="line">$ git branch dev</div><div class="line">$ git checkout dev</div></pre></td></tr></table></figure>
@@ -449,7 +449,7 @@
 <li><em>查看今天或截止6天前写了多少行代码</em></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git diff --shortstat</div><div class="line">or</div><div class="line">$ git diff --shortstat &quot;@&#123;6 day ago&#125;&quot;</div></pre></td></tr></table></figure>
-<h3 id="4-git-log操作"><a href="#4-git-log操作" class="headerlink" title="4. git log操作"></a>4. git log操作</h3><ul>
+<h3 id="git-log操作"><a href="#git-log操作" class="headerlink" title="git log操作"></a>git log操作</h3><ul>
 <li><em>查看文件的每一个详细的历史修改，如果没有-p选项，只显示提交记录，不显示文件内容修改，git log -p -3 filename 显示最近的3次提交</em></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log -p filename</div></pre></td></tr></table></figure>
@@ -461,7 +461,7 @@
 <li><em>查看自己某人最后提交的N条记录</em></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git log —oneline -n 5 —author=username</div><div class="line">or </div><div class="line">$ git log -n 5 —author=username</div></pre></td></tr></table></figure>
-<h3 id="4-git-stash-用法"><a href="#4-git-stash-用法" class="headerlink" title="4. git stash 用法"></a>4. git stash 用法</h3><ul>
+<h3 id="git-stash-用法"><a href="#git-stash-用法" class="headerlink" title="git stash 用法"></a>git stash 用法</h3><ul>
 <li><em>备份当前的工作区的内容，从最近的一次提交中读取相关内容，让工作区保证和上次提交的内容一致。同时，将当前的工作区内容保存到Git栈中</em></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash</div></pre></td></tr></table></figure>
@@ -611,7 +611,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -633,7 +633,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -706,7 +706,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-远程操作"><span class="nav-number">1.</span> <span class="nav-text">1. 远程操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-本地操作"><span class="nav-number">2.</span> <span class="nav-text">2. 本地操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-git-log操作"><span class="nav-number">3.</span> <span class="nav-text">4. git log操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-git-stash-用法"><span class="nav-number">4.</span> <span class="nav-text">4. git stash 用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#远程操作"><span class="nav-number">1.</span> <span class="nav-text">远程操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地操作"><span class="nav-number">2.</span> <span class="nav-text">本地操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-log操作"><span class="nav-number">3.</span> <span class="nav-text">git log操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-stash-用法"><span class="nav-number">4.</span> <span class="nav-text">git stash 用法</span></a></li></ol></div>
             
 
           </div>

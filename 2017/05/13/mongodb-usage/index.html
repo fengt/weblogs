@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="歌词," />
+  <meta name="keywords" content="mongo," />
 
 
 
@@ -87,18 +87,22 @@
 
 
 
-<meta name="description" content="前两天看到阮老师（阮一峰）一篇很久前的博客，推荐了这首歌《年轻的心》，歌词写的很好，于是也在这贴出借以鼓励。">
+<meta name="description" content="以下为工作开发中使用到的一些简单的mongo操作，仅供学习和日后参考，详情可参考官方文档。
+终端连接mongo库123$ mongo somewhere.mongolayer.com:10011/my_database -u username -p passwordor$ mongo 10.230.5.89:60001/my_database
+增删改查操作123456789101112131415">
 <meta property="og:type" content="article">
-<meta property="og:title" content="年轻的心">
-<meta property="og:url" content="http://yoursite.com/2017/04/16/young-heart/index.html">
+<meta property="og:title" content="mongodb的使用">
+<meta property="og:url" content="http://yoursite.com/2017/05/13/mongodb-usage/index.html">
 <meta property="og:site_name" content="FengTao's Blog">
-<meta property="og:description" content="前两天看到阮老师（阮一峰）一篇很久前的博客，推荐了这首歌《年轻的心》，歌词写的很好，于是也在这贴出借以鼓励。">
-<meta property="og:image" content="http://yoursite.com/images/young-heart.jpg">
-<meta property="og:updated_time" content="2017-11-20T14:32:55.231Z">
+<meta property="og:description" content="以下为工作开发中使用到的一些简单的mongo操作，仅供学习和日后参考，详情可参考官方文档。
+终端连接mongo库123$ mongo somewhere.mongolayer.com:10011/my_database -u username -p passwordor$ mongo 10.230.5.89:60001/my_database
+增删改查操作123456789101112131415">
+<meta property="og:updated_time" content="2017-11-20T14:49:38.740Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="年轻的心">
-<meta name="twitter:description" content="前两天看到阮老师（阮一峰）一篇很久前的博客，推荐了这首歌《年轻的心》，歌词写的很好，于是也在这贴出借以鼓励。">
-<meta name="twitter:image" content="http://yoursite.com/images/young-heart.jpg">
+<meta name="twitter:title" content="mongodb的使用">
+<meta name="twitter:description" content="以下为工作开发中使用到的一些简单的mongo操作，仅供学习和日后参考，详情可参考官方文档。
+终端连接mongo库123$ mongo somewhere.mongolayer.com:10011/my_database -u username -p passwordor$ mongo 10.230.5.89:60001/my_database
+增删改查操作123456789101112131415">
 
 
 
@@ -126,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/16/young-heart/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/13/mongodb-usage/"/>
 
 
 
 
 
-  <title> 年轻的心 | FengTao's Blog </title>
+  <title> mongodb的使用 | FengTao's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +265,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/16/young-heart/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/13/mongodb-usage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="FengTao">
@@ -282,7 +286,7 @@
             
             
               
-                年轻的心
+                mongodb的使用
               
             
           </h1>
@@ -297,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-16T00:00:00+08:00">
-                2017-04-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-13T00:00:00+08:00">
+                2017-05-13
               </time>
             
 
@@ -320,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/摘要/" itemprop="url" rel="index">
-                    <span itemprop="name">摘要</span>
+                  <a href="/categories/技能/" itemprop="url" rel="index">
+                    <span itemprop="name">技能</span>
                   </a>
                 </span>
 
@@ -355,10 +359,39 @@
       
 
       
-        <p>前两天看到阮老师（阮一峰）一篇很久前的博客，推荐了这首歌《年轻的心》，歌词写的很好，于是也在这贴出借以鼓励。</p>
-<p><img src="/images/young-heart.jpg" alt=""></p>
+        <p>以下为工作开发中使用到的一些简单的mongo操作，仅供学习和日后参考，详情可参考<a href="https://docs.mongodb.com/" target="_blank" rel="external">官方文档</a>。</p>
+<h3 id="终端连接mongo库"><a href="#终端连接mongo库" class="headerlink" title="终端连接mongo库"></a>终端连接mongo库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mongo somewhere.mongolayer.com:10011/my_database -u username -p password</div><div class="line">or</div><div class="line">$ mongo 10.230.5.89:60001/my_database</div></pre></td></tr></table></figure>
+<h3 id="增删改查操作"><a href="#增删改查操作" class="headerlink" title="增删改查操作"></a>增删改查操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"># 查询已有的数据库</div><div class="line">$ show dbs</div><div class="line"># 查看集合</div><div class="line">$ show collections</div><div class="line"># 创建集合</div><div class="line">$ db.createCollection(&quot;集合名字：如（mycollection）&quot;)</div><div class="line"># 插入数据</div><div class="line">$ db.mycollection.insert(&#123;name:&quot;liujinhuan&quot;&#125;)</div><div class="line"># 查询数据</div><div class="line">$ db.mycollection.find().pretty()</div><div class="line"># 更新数据</div><div class="line">$ db.mycollection.update(&#123;&apos;name&apos;:&apos;liujinhuan&apos;&#125;,&#123;$set:&#123;&apos;name&apos;:&apos;TTTTTT&apos;&#125;&#125;)</div><div class="line"># 删除数据</div><div class="line">$ db.mycollection.remove(&#123;&quot;name&quot;:&quot;liujinhuan&quot;&#125;)</div><div class="line"># 删除集合</div><div class="line">$ db.mycollection.drop()</div><div class="line"># 删除集合库</div><div class="line">$ db.dropDatabase()</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>你享受和平日出的光辉<br>映照昨天你的泪水<br>在和谐的旋律中成长<br>让我们一齐欢唱<br>也许今日我们有些困苦<br>也许明天依然如故<br>但千万不要畏惧退缩<br>让时间拨开黑雾<br>就算身处在艰难和困苦里<br>也有生存的勇气<br>只要从头开始把握你的信心<br>紧握的双手里有你的命运<br>给我年轻的心<br>给我你的热情<br>让太阳为你披上雪亮的制服<br>你我的肩上有着共同任务<br>给我年轻的心<br>给我你的生命<br>在今天抚平所有波涛的汹涌<br>向未来岁月展现你的笑容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"># 分组统计查询</div><div class="line">db.runCommand(&#123;</div><div class="line">    group: &#123;</div><div class="line">        ns: &apos;mycollection&apos;,</div><div class="line">        key: &#123;</div><div class="line">            filed1: 1,</div><div class="line">            filed2: 2</div><div class="line">        &#125;,</div><div class="line">        $reduce: function(curr, result) &#123;</div><div class="line">            result.total += curr.age,</div><div class="line">            result.score += curr.score,</div><div class="line">            result.count += 1</div><div class="line">        &#125;,</div><div class="line">        initial: &#123;</div><div class="line">            total: 0,</div><div class="line">            score: 0,</div><div class="line">            count: 0</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="集群相关操作"><a href="#集群相关操作" class="headerlink" title="集群相关操作"></a>集群相关操作</h3><ul>
+<li><p>滚动日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ use admin</div><div class="line">$ db.runCommand(&#123;logRotate:1&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>关闭mongo服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ use admin</div><div class="line">$ db.shutdownServer()</div><div class="line">or</div><div class="line">$ mongo 192.168.10.20:27000/admin --eval &quot;db.shutdownServer()&quot;</div><div class="line">or</div><div class="line">$ mongo 192.168.10.20:27000 --eval &quot;db=db.getSiblingDB(&apos;admin&apos;);db.shutdownServer()&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ db.status() # 该库状态</div><div class="line">$ db.isMaster() # 是否主节点</div><div class="line">$ rs.status() # 集群状态</div></pre></td></tr></table></figure>
+</li>
+<li><p>集群结点优先级调整</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ cfg = rs.conf()</div><div class="line">$ cfg.members[0].priority = 0.5</div><div class="line">$ cfg.members[1].priority = 2</div><div class="line">$ cfg.members[2].priority = 2</div><div class="line">$ rs.reconfig(cfg)</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看主从同步情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ db.printSlaveReplicationInfo()</div><div class="line">or</div><div class="line">$ db.printReplicationInfo()</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除从节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rs.remove(“10.230.5.89:60001”)</div></pre></td></tr></table></figure>
+</li>
+<li><p>新增新节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rs.add(&quot;192.168.0.149:27100&quot;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>查询库下集合数量（版本3.0以前，默认每个库下不超过24000）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ db.system.namespaces.count()</div><div class="line">$ db.system.namespaces.find()</div></pre></td></tr></table></figure>
+</li>
+<li><p>移除mongodb集群</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a.停掉全部的机器的mongo服务</div><div class="line">b.删除掉local.* 文件，删除journal文件夹</div><div class="line">c.重新启动（在启动命令中去掉 --replSet=rs）</div></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
@@ -388,7 +421,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/歌词/" rel="tag"># 歌词</a>
+            <a href="/tags/mongo/" rel="tag"># mongo</a>
           
         </div>
       
@@ -401,8 +434,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/10/heart-you-should-know/" rel="next" title="你不知的心声">
-                <i class="fa fa-chevron-left"></i> 你不知的心声
+              <a href="/2017/04/16/young-heart/" rel="next" title="年轻的心">
+                <i class="fa fa-chevron-left"></i> 年轻的心
               </a>
             
           </div>
@@ -410,10 +443,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/13/mongodb-usage/" rel="prev" title="mongodb的使用">
-                mongodb的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -460,8 +489,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -561,6 +599,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#终端连接mongo库"><span class="nav-number">1.</span> <span class="nav-text">终端连接mongo库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增删改查操作"><span class="nav-number">2.</span> <span class="nav-text">增删改查操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群相关操作"><span class="nav-number">3.</span> <span class="nav-text">集群相关操作</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -88,18 +88,18 @@
 
 
 <meta name="description" content="Siege是一个压力测试和评测工具，可以根据配置对一个WEB站点进行多用户的并发访问，记录每个用户所有请求过程的相应时间，并在预定义并发量下重复进行。siege可以从预定义列表中获取随机的URL，所以siege可用于仿真用户请求负载。
-1. 请求参数详解123456789101112131415161718192021222324-C,或–config 在屏幕上打印显示出当前的配置，配置是包括在他">
+请求参数详解123456789101112131415161718192021222324-C,或–config 在屏幕上打印显示出当前的配置，配置是包括在他的配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="siege的简单使用">
 <meta property="og:url" content="http://yoursite.com/2016/07/10/simply-use-siege/index.html">
 <meta property="og:site_name" content="FengTao's Blog">
 <meta property="og:description" content="Siege是一个压力测试和评测工具，可以根据配置对一个WEB站点进行多用户的并发访问，记录每个用户所有请求过程的相应时间，并在预定义并发量下重复进行。siege可以从预定义列表中获取随机的URL，所以siege可用于仿真用户请求负载。
-1. 请求参数详解123456789101112131415161718192021222324-C,或–config 在屏幕上打印显示出当前的配置，配置是包括在他">
-<meta property="og:updated_time" content="2016-12-27T14:26:39.000Z">
+请求参数详解123456789101112131415161718192021222324-C,或–config 在屏幕上打印显示出当前的配置，配置是包括在他的配置">
+<meta property="og:updated_time" content="2017-11-20T14:19:04.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="siege的简单使用">
 <meta name="twitter:description" content="Siege是一个压力测试和评测工具，可以根据配置对一个WEB站点进行多用户的并发访问，记录每个用户所有请求过程的相应时间，并在预定义并发量下重复进行。siege可以从预定义列表中获取随机的URL，所以siege可用于仿真用户请求负载。
-1. 请求参数详解123456789101112131415161718192021222324-C,或–config 在屏幕上打印显示出当前的配置，配置是包括在他">
+请求参数详解123456789101112131415161718192021222324-C,或–config 在屏幕上打印显示出当前的配置，配置是包括在他的配置">
 
 
 
@@ -357,9 +357,9 @@
 
       
         <p><a href="http://www.joedog.org" target="_blank" rel="external">Siege</a>是一个压力测试和评测工具，可以根据配置对一个WEB站点进行多用户的并发访问，记录每个用户所有请求过程的相应时间，并在预定义并发量下重复进行。siege可以从预定义列表中获取随机的URL，所以siege可用于仿真用户请求负载。</p>
-<h3 id="1-请求参数详解"><a href="#1-请求参数详解" class="headerlink" title="1. 请求参数详解"></a>1. 请求参数详解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">-C,或–config 在屏幕上打印显示出当前的配置，配置是包括在他的配置文件$HOME/.siegerc中，可以编辑里面的参数，这样每次siege 都会按照它运行</div><div class="line"></div><div class="line">-v 运行时能看到详细的运行信息</div><div class="line"></div><div class="line">-c n,或–concurrent=n 模拟有n个用户在同时访问，n不要设得太大，因为越大，siege消耗本地机器的资源越多</div><div class="line"></div><div class="line">-i,–internet 随机访问urls.txt中的url列表项，以此模拟真实的访问情况(随机性)，当urls.txt存在是有效</div><div class="line"></div><div class="line">-d n,–delay=n hit每个url之间的延迟，在0-n之间</div><div class="line"></div><div class="line">-r n,–reps=n 重复运行测试n次，不能与-t同时存在</div><div class="line"></div><div class="line">-t n,–time=n 持续运行siege ‘n’秒(如10S)，分钟(10M)，小时(10H)</div><div class="line"></div><div class="line">-l 运行结束，将统计数据保存到日志文件中siege.log，一般位于/usr/local/var/siege .log中，也可在.siegerc中自定义</div><div class="line"></div><div class="line">-R SIEGERC,–rc=SIEGERC 指定用特定的siege配置文件来运行，默认的为$HOME/.siegerc</div><div class="line"></div><div class="line">-f FILE, –file=FILE 指定用特定的urls文件运行siege，默认为urls.txt，位于siege安装目录下的etc/urls.txt</div><div class="line"></div><div class="line">-u URL,–url=URL 测试指定的一个URL，对它进行”siege “，此选项会忽略有关urls文件的设定</div><div class="line"></div><div class="line">urls.txt文件：是很多行待测试URL的列表以换行符断开,格式为:</div><div class="line">[protocol://]host.domain.com[:port][path/to/file]</div></pre></td></tr></table></figure>
+<h3 id="请求参数详解"><a href="#请求参数详解" class="headerlink" title="请求参数详解"></a>请求参数详解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">-C,或–config 在屏幕上打印显示出当前的配置，配置是包括在他的配置文件$HOME/.siegerc中，可以编辑里面的参数，这样每次siege 都会按照它运行</div><div class="line"></div><div class="line">-v 运行时能看到详细的运行信息</div><div class="line"></div><div class="line">-c n,或–concurrent=n 模拟有n个用户在同时访问，n不要设得太大，因为越大，siege消耗本地机器的资源越多</div><div class="line"></div><div class="line">-i,–internet 随机访问urls.txt中的url列表项，以此模拟真实的访问情况(随机性)，当urls.txt存在是有效</div><div class="line"></div><div class="line">-d n,–delay=n hit每个url之间的延迟，在0-n之间</div><div class="line"></div><div class="line">-r n,–reps=n 重复运行测试n次，不能与-t同时存在</div><div class="line"></div><div class="line">-t n,–time=n 持续运行siege ‘n’秒(如10S)，分钟(10M)，小时(10H)</div><div class="line"></div><div class="line">-l 运行结束，将统计数据保存到日志文件中siege.log，一般位于/usr/local/var/siege .log中，也可在.siegerc中自定义</div><div class="line"></div><div class="line">-R SIEGERC,–rc=SIEGERC 指定用特定的siege配置文件来运行，默认的为$HOME/.siegerc</div><div class="line"></div><div class="line">-f FILE, –file=FILE 指定用特定的urls文件运行siege，默认为urls.txt，位于siege安装目录下的etc/urls.txt</div><div class="line"></div><div class="line">-u URL,–url=URL 测试指定的一个URL，对它进行”siege “，此选项会忽略有关urls文件的设定</div><div class="line"></div><div class="line">urls.txt文件：是很多行待测试URL的列表以换行符断开,格式为:</div><div class="line">[protocol://]host.domain.com[:port][path/to/file]</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="2-使用说明"><a href="#2-使用说明" class="headerlink" title="2. 使用说明"></a>2. 使用说明</h3><ul>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ul>
 <li><p>10个用户并发，重复10次，无参数的GET请求100次</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">siege -c 10 -r 10 https://mysever.com/api</div></pre></td></tr></table></figure>
 </li>
@@ -382,7 +382,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&quot;param1&quot;:&quot;green&quot;,&quot;param2&quot;:&quot;brs&quot;&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="3-结果参数说明"><a href="#3-结果参数说明" class="headerlink" title="3. 结果参数说明"></a>3. 结果参数说明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Transactions: //完成多少次处理</div><div class="line"></div><div class="line">Availability: //成功率%</div><div class="line"></div><div class="line">Elapsed time: //总共使用时间secs</div><div class="line"></div><div class="line">Data transferred: //总数据传输M（不包含头数据）</div><div class="line"></div><div class="line">Response time: //平均响应时间secs</div><div class="line"></div><div class="line">Transaction rate: //平均每秒完成多少次处理trans/sec</div><div class="line"></div><div class="line">Throughput: //平均每秒传送数据MB/sec</div><div class="line"></div><div class="line">Concurrency: //实际最高并发连接数</div><div class="line"></div><div class="line">Successful transactions: //成功处理次数</div><div class="line"></div><div class="line">Failed transactions: //失败处理次数</div><div class="line"></div><div class="line">Longest transaction: //满足一个请求所需最长时间</div><div class="line"></div><div class="line">Shortest transaction: //满足一个请求所需最短时间</div></pre></td></tr></table></figure>
+<h3 id="结果参数说明"><a href="#结果参数说明" class="headerlink" title="结果参数说明"></a>结果参数说明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Transactions: //完成多少次处理</div><div class="line"></div><div class="line">Availability: //成功率%</div><div class="line"></div><div class="line">Elapsed time: //总共使用时间secs</div><div class="line"></div><div class="line">Data transferred: //总数据传输M（不包含头数据）</div><div class="line"></div><div class="line">Response time: //平均响应时间secs</div><div class="line"></div><div class="line">Transaction rate: //平均每秒完成多少次处理trans/sec</div><div class="line"></div><div class="line">Throughput: //平均每秒传送数据MB/sec</div><div class="line"></div><div class="line">Concurrency: //实际最高并发连接数</div><div class="line"></div><div class="line">Successful transactions: //成功处理次数</div><div class="line"></div><div class="line">Failed transactions: //失败处理次数</div><div class="line"></div><div class="line">Longest transaction: //满足一个请求所需最长时间</div><div class="line"></div><div class="line">Shortest transaction: //满足一个请求所需最短时间</div></pre></td></tr></table></figure>
 <p>根据结果参数可简单对web或接口等压测进行分析，具体siege的参数说明可参阅man文档及<a href="http://www.joedog.org" target="_blank" rel="external">官网</a>。</p>
 
       
@@ -510,7 +510,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -532,7 +532,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -605,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-请求参数详解"><span class="nav-number">1.</span> <span class="nav-text">1. 请求参数详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用说明"><span class="nav-number">2.</span> <span class="nav-text">2. 使用说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-结果参数说明"><span class="nav-number">3.</span> <span class="nav-text">3. 结果参数说明</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求参数详解"><span class="nav-number">1.</span> <span class="nav-text">请求参数详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用说明"><span class="nav-number">2.</span> <span class="nav-text">使用说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果参数说明"><span class="nav-number">3.</span> <span class="nav-text">结果参数说明</span></a></li></ol></div>
             
 
           </div>
