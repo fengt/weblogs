@@ -88,21 +88,18 @@
 
 
 <meta name="description" content="以下为工作开发中使用到的一些简单的mongo操作，仅供学习和日后参考，详情可参考官方文档。
-终端连接mongo库123$ mongo somewhere.mongolayer.com:10011/my_database -u username -p passwordor$ mongo 10.230.5.89:60001/my_database
-增删改查操作123456789101112131415">
+终端连接mongo库123$ mongo somewhere.mongolayer.com:10011/my_database -u username -p passwordor$ mongo 10.230.5.89:60001/my_database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mongodb的使用">
 <meta property="og:url" content="http://yoursite.com/2017/05/13/mongodb-usage/index.html">
 <meta property="og:site_name" content="FengTao's Blog">
 <meta property="og:description" content="以下为工作开发中使用到的一些简单的mongo操作，仅供学习和日后参考，详情可参考官方文档。
-终端连接mongo库123$ mongo somewhere.mongolayer.com:10011/my_database -u username -p passwordor$ mongo 10.230.5.89:60001/my_database
-增删改查操作123456789101112131415">
-<meta property="og:updated_time" content="2017-11-20T14:49:38.740Z">
+终端连接mongo库123$ mongo somewhere.mongolayer.com:10011/my_database -u username -p passwordor$ mongo 10.230.5.89:60001/my_database">
+<meta property="og:updated_time" content="2018-01-20T13:38:11.076Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mongodb的使用">
 <meta name="twitter:description" content="以下为工作开发中使用到的一些简单的mongo操作，仅供学习和日后参考，详情可参考官方文档。
-终端连接mongo库123$ mongo somewhere.mongolayer.com:10011/my_database -u username -p passwordor$ mongo 10.230.5.89:60001/my_database
-增删改查操作123456789101112131415">
+终端连接mongo库123$ mongo somewhere.mongolayer.com:10011/my_database -u username -p passwordor$ mongo 10.230.5.89:60001/my_database">
 
 
 
@@ -361,8 +358,8 @@
       
         <p>以下为工作开发中使用到的一些简单的mongo操作，仅供学习和日后参考，详情可参考<a href="https://docs.mongodb.com/" target="_blank" rel="external">官方文档</a>。</p>
 <h3 id="终端连接mongo库"><a href="#终端连接mongo库" class="headerlink" title="终端连接mongo库"></a>终端连接mongo库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mongo somewhere.mongolayer.com:10011/my_database -u username -p password</div><div class="line">or</div><div class="line">$ mongo 10.230.5.89:60001/my_database</div></pre></td></tr></table></figure>
-<h3 id="增删改查操作"><a href="#增删改查操作" class="headerlink" title="增删改查操作"></a>增删改查操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"># 查询已有的数据库</div><div class="line">$ show dbs</div><div class="line"># 查看集合</div><div class="line">$ show collections</div><div class="line"># 创建集合</div><div class="line">$ db.createCollection(&quot;集合名字：如（mycollection）&quot;)</div><div class="line"># 插入数据</div><div class="line">$ db.mycollection.insert(&#123;name:&quot;liujinhuan&quot;&#125;)</div><div class="line"># 查询数据</div><div class="line">$ db.mycollection.find().pretty()</div><div class="line"># 更新数据</div><div class="line">$ db.mycollection.update(&#123;&apos;name&apos;:&apos;liujinhuan&apos;&#125;,&#123;$set:&#123;&apos;name&apos;:&apos;TTTTTT&apos;&#125;&#125;)</div><div class="line"># 删除数据</div><div class="line">$ db.mycollection.remove(&#123;&quot;name&quot;:&quot;liujinhuan&quot;&#125;)</div><div class="line"># 删除集合</div><div class="line">$ db.mycollection.drop()</div><div class="line"># 删除集合库</div><div class="line">$ db.dropDatabase()</div></pre></td></tr></table></figure>
 <a id="more"></a>
+<h3 id="增删改查操作"><a href="#增删改查操作" class="headerlink" title="增删改查操作"></a>增删改查操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"># 查询已有的数据库</div><div class="line">$ show dbs</div><div class="line"># 查看集合</div><div class="line">$ show collections</div><div class="line"># 创建集合</div><div class="line">$ db.createCollection(&quot;集合名字：如（mycollection）&quot;)</div><div class="line"># 插入数据</div><div class="line">$ db.mycollection.insert(&#123;name:&quot;liujinhuan&quot;&#125;)</div><div class="line"># 查询数据</div><div class="line">$ db.mycollection.find().pretty()</div><div class="line"># 更新数据</div><div class="line">$ db.mycollection.update(&#123;&apos;name&apos;:&apos;liujinhuan&apos;&#125;,&#123;$set:&#123;&apos;name&apos;:&apos;TTTTTT&apos;&#125;&#125;)</div><div class="line"># 删除数据</div><div class="line">$ db.mycollection.remove(&#123;&quot;name&quot;:&quot;liujinhuan&quot;&#125;)</div><div class="line"># 删除集合</div><div class="line">$ db.mycollection.drop()</div><div class="line"># 删除集合库</div><div class="line">$ db.dropDatabase()</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"># 分组统计查询</div><div class="line">db.runCommand(&#123;</div><div class="line">    group: &#123;</div><div class="line">        ns: &apos;mycollection&apos;,</div><div class="line">        key: &#123;</div><div class="line">            filed1: 1,</div><div class="line">            filed2: 2</div><div class="line">        &#125;,</div><div class="line">        $reduce: function(curr, result) &#123;</div><div class="line">            result.total += curr.age,</div><div class="line">            result.score += curr.score,</div><div class="line">            result.count += 1</div><div class="line">        &#125;,</div><div class="line">        initial: &#123;</div><div class="line">            total: 0,</div><div class="line">            score: 0,</div><div class="line">            count: 0</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <h3 id="集群相关操作"><a href="#集群相关操作" class="headerlink" title="集群相关操作"></a>集群相关操作</h3><ul>
 <li><p>滚动日志</p>
@@ -444,6 +441,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/12/01/ruby-inject-usage/" rel="prev" title="ruby的inject函数">
+                ruby的inject函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -514,7 +515,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -632,7 +633,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ruby," />
 
 
 
@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="Think big, start small, act fast">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="inject带有一个参数和block。block中的两个参数是有含义的。第一个参数reslut在inject第一次执行block时把inject带的参数付值给它，element就是数组中的元素，该例中inject一共执行4次block，每次执行block完后，最后语句的结果再付值给result，如此循环，直到遍历数组中所有元素：1[1, 2, 3, 4].inject(0) &amp;#123; |re">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ruby的inject函数">
+<meta property="og:url" content="http://yoursite.com/2017/12/01/ruby-inject-usage/index.html">
 <meta property="og:site_name" content="FengTao's Blog">
-<meta property="og:description" content="Think big, start small, act fast">
-<meta property="og:updated_time" content="2016-12-27T14:26:39.000Z">
+<meta property="og:description" content="inject带有一个参数和block。block中的两个参数是有含义的。第一个参数reslut在inject第一次执行block时把inject带的参数付值给它，element就是数组中的元素，该例中inject一共执行4次block，每次执行block完后，最后语句的结果再付值给result，如此循环，直到遍历数组中所有元素：1[1, 2, 3, 4].inject(0) &amp;#123; |re">
+<meta property="og:updated_time" content="2018-01-20T13:39:50.303Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
-<meta name="twitter:description" content="Think big, start small, act fast">
+<meta name="twitter:title" content="ruby的inject函数">
+<meta name="twitter:description" content="inject带有一个参数和block。block中的两个参数是有含义的。第一个参数reslut在inject第一次执行block时把inject带的参数付值给它，element就是数组中的元素，该例中inject一共执行4次block，每次执行block完后，最后语句的结果再付值给result，如此循环，直到遍历数组中所有元素：1[1, 2, 3, 4].inject(0) &amp;#123; |re">
 
 
 
@@ -124,19 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/01/ruby-inject-usage/"/>
 
 
 
 
 
-  <title>
-  
-
-  
-    标签 | FengTao's Blog
-  
-</title>
+  <title> ruby的inject函数 | FengTao's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -161,7 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -256,25 +250,194 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline">标签</h1>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/01/ruby-inject-usage/">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FengTao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FengTao's Blog">
+    </span>
 
     
-    
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            目前共计 8 个标签
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ruby的inject函数
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-01T00:00:00+08:00">
+                2017-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技能/" itemprop="url" rel="index">
+                    <span itemprop="name">技能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-        <div class="tag-cloud-tags">
-          <a href="/tags/excel/" style="font-size: 12px; color: #ccc">excel</a> <a href="/tags/git/" style="font-size: 12px; color: #ccc">git</a> <a href="/tags/java/" style="font-size: 12px; color: #ccc">java</a> <a href="/tags/linux/" style="font-size: 12px; color: #ccc">linux</a> <a href="/tags/mongo/" style="font-size: 12px; color: #ccc">mongo</a> <a href="/tags/ruby/" style="font-size: 12px; color: #ccc">ruby</a> <a href="/tags/siege/" style="font-size: 12px; color: #ccc">siege</a> <a href="/tags/歌词/" style="font-size: 12px; color: #ccc">歌词</a>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>inject带有一个参数和block。block中的两个参数是有含义的。第一个参数reslut在inject第一次执行block时把inject带的参数付值给它，element就是数组中的元素，该例中inject一共执行4次block，每次执行block完后，最后语句的结果再付值给result，如此循环，直到遍历数组中所有元素：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3, 4].inject(0) &#123; |result, element| result + element &#125; # =&gt; 10</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>inject可以不带参数，此时result的初始值为数组元素的第一个值（执行3次block）：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3, 4].inject&#123; |result, element| result + element &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>把array转换成hash表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hash = [[:first_name, &apos;Shane&apos;], [:last_name, &apos;Harvie&apos;]].inject(&#123;&#125;) do |result, element|</div><div class="line"> result[element.first] = element.last</div><div class="line"> result</div><div class="line">end</div><div class="line">hash # =&gt; &#123;:first_name=&gt;&quot;Shane&quot;, :last_name=&gt;&quot;Harvie&quot;&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>对一数组元素进行过滤并进行一些加工：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3, 4, 5, 6].select &#123; |element| element % 2 == 0 &#125;.collect &#123; |element| element.to_s &#125; # =&gt; [&quot;2&quot;, &quot;4&quot;, &quot;6&quot;]</div></pre></td></tr></table></figure>
+</li>
+<li><p>用inject实现选取数组中的偶数，并把它们转换成字符型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">array = [1, 2, 3, 4, 5, 6].inject([]) do |result, element|</div><div class="line"> result &lt;&lt; element.to_s if element % 2 == 0</div><div class="line"> result</div><div class="line">end</div><div class="line">array # =&gt; [&quot;2&quot;, &quot;4&quot;, &quot;6&quot;]</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ruby/" rel="tag"># ruby</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/13/mongodb-usage/" rel="next" title="mongodb的使用">
+                <i class="fa fa-chevron-left"></i> mongodb的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -521,6 +684,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

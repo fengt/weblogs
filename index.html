@@ -260,6 +260,156 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/01/ruby-inject-usage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FengTao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FengTao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/01/ruby-inject-usage/" itemprop="url">
+                  ruby的inject函数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-01T00:00:00+08:00">
+                2017-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技能/" itemprop="url" rel="index">
+                    <span itemprop="name">技能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ul>
+<li>inject带有一个参数和block。block中的两个参数是有含义的。第一个参数reslut在inject第一次执行block时把inject带的参数付值给它，element就是数组中的元素，该例中inject一共执行4次block，每次执行block完后，最后语句的结果再付值给result，如此循环，直到遍历数组中所有元素：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3, 4].inject(0) &#123; |result, element| result + element &#125; # =&gt; 10</div></pre></td></tr></table></figure>
+</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/01/ruby-inject-usage/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/13/mongodb-usage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -360,7 +510,6 @@
         
           <p>以下为工作开发中使用到的一些简单的mongo操作，仅供学习和日后参考，详情可参考<a href="https://docs.mongodb.com/">官方文档</a>。</p>
 <h3 id="终端连接mongo库"><a href="#终端连接mongo库" class="headerlink" title="终端连接mongo库"></a>终端连接mongo库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mongo somewhere.mongolayer.com:10011/my_database -u username -p password</div><div class="line">or</div><div class="line">$ mongo 10.230.5.89:60001/my_database</div></pre></td></tr></table></figure>
-<h3 id="增删改查操作"><a href="#增删改查操作" class="headerlink" title="增删改查操作"></a>增删改查操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"># 查询已有的数据库</div><div class="line">$ show dbs</div><div class="line"># 查看集合</div><div class="line">$ show collections</div><div class="line"># 创建集合</div><div class="line">$ db.createCollection(&quot;集合名字：如（mycollection）&quot;)</div><div class="line"># 插入数据</div><div class="line">$ db.mycollection.insert(&#123;name:&quot;liujinhuan&quot;&#125;)</div><div class="line"># 查询数据</div><div class="line">$ db.mycollection.find().pretty()</div><div class="line"># 更新数据</div><div class="line">$ db.mycollection.update(&#123;&apos;name&apos;:&apos;liujinhuan&apos;&#125;,&#123;$set:&#123;&apos;name&apos;:&apos;TTTTTT&apos;&#125;&#125;)</div><div class="line"># 删除数据</div><div class="line">$ db.mycollection.remove(&#123;&quot;name&quot;:&quot;liujinhuan&quot;&#125;)</div><div class="line"># 删除集合</div><div class="line">$ db.mycollection.drop()</div><div class="line"># 删除集合库</div><div class="line">$ db.dropDatabase()</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/13/mongodb-usage/#more" rel="contents">
@@ -508,10 +657,156 @@
       
         
           <p>前两天看到阮老师（阮一峰）一篇很久前的博客，推荐了这首歌《年轻的心》，歌词写的很好，于是也在这贴出借以鼓励。</p>
-<p><img src="/images/young-heart.jpg" alt=""></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/16/young-heart/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/10/apt-usage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FengTao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FengTao's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/10/apt-usage/" itemprop="url">
+                  apt-get命令
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-10T00:00:00+08:00">
+                2017-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技能/" itemprop="url" rel="index">
+                    <span itemprop="name">技能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>apt-get是高级包装工具（英语：Advanced Packaging Tools,简称：APT）是Debian及其衍生发行版（如：Ubuntu）的软件包管理器。APT可以自动下载、配置、安装二进制或者源代码格式的软件包，简化了Unix系统上管理软件的过程，apt-get命令一般需要root权限执行，所以一般跟着sudo命令，这里仅简单说明参数，详情可执行命令（man apt-get）查看。 </p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/10/apt-usage/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -656,7 +951,6 @@
       
         
           <p>总认为自己的心声很多时候不为人知没有什么，因为彼此本不熟悉，也不了解。但时间愈久，便会发觉曾经熟悉的人或事已渐行渐远，若隐若现。</p>
-<p><img src="/images/heart-you-should-know.jpeg" alt=""></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/09/10/heart-you-should-know/#more" rel="contents">
@@ -804,7 +1098,6 @@
       
         
           <p><a href="http://www.joedog.org">Siege</a>是一个压力测试和评测工具，可以根据配置对一个WEB站点进行多用户的并发访问，记录每个用户所有请求过程的相应时间，并在预定义并发量下重复进行。siege可以从预定义列表中获取随机的URL，所以siege可用于仿真用户请求负载。</p>
-<h3 id="请求参数详解"><a href="#请求参数详解" class="headerlink" title="请求参数详解"></a>请求参数详解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">-C,或–config 在屏幕上打印显示出当前的配置，配置是包括在他的配置文件$HOME/.siegerc中，可以编辑里面的参数，这样每次siege 都会按照它运行</div><div class="line"></div><div class="line">-v 运行时能看到详细的运行信息</div><div class="line"></div><div class="line">-c n,或–concurrent=n 模拟有n个用户在同时访问，n不要设得太大，因为越大，siege消耗本地机器的资源越多</div><div class="line"></div><div class="line">-i,–internet 随机访问urls.txt中的url列表项，以此模拟真实的访问情况(随机性)，当urls.txt存在是有效</div><div class="line"></div><div class="line">-d n,–delay=n hit每个url之间的延迟，在0-n之间</div><div class="line"></div><div class="line">-r n,–reps=n 重复运行测试n次，不能与-t同时存在</div><div class="line"></div><div class="line">-t n,–time=n 持续运行siege ‘n’秒(如10S)，分钟(10M)，小时(10H)</div><div class="line"></div><div class="line">-l 运行结束，将统计数据保存到日志文件中siege.log，一般位于/usr/local/var/siege .log中，也可在.siegerc中自定义</div><div class="line"></div><div class="line">-R SIEGERC,–rc=SIEGERC 指定用特定的siege配置文件来运行，默认的为$HOME/.siegerc</div><div class="line"></div><div class="line">-f FILE, –file=FILE 指定用特定的urls文件运行siege，默认为urls.txt，位于siege安装目录下的etc/urls.txt</div><div class="line"></div><div class="line">-u URL,–url=URL 测试指定的一个URL，对它进行”siege “，此选项会忽略有关urls文件的设定</div><div class="line"></div><div class="line">urls.txt文件：是很多行待测试URL的列表以换行符断开,格式为:</div><div class="line">[protocol://]host.domain.com[:port][path/to/file]</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/07/10/simply-use-siege/#more" rel="contents">
@@ -959,18 +1252,6 @@
 <li><em>添加远程主机(rhost)的仓库</em></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote add rhost https://github.com/xxx/demo.git</div></pre></td></tr></table></figure>
-<ul>
-<li><em>显示远程主机详细信息</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote show origin</div></pre></td></tr></table></figure>
-<ul>
-<li><em>推送新分支dev到远程主机分支dev</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin dev:dev</div></pre></td></tr></table></figure>
-<ul>
-<li><em>标签推送</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git push origin v1.5</div><div class="line">or</div><div class="line">$ git push origin --tags</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/01/01/git-in-common-use/#more" rel="contents">
@@ -1118,30 +1399,7 @@
       
         
           <h2 id="Spring定义事务属性几种方式"><a href="#Spring定义事务属性几种方式" class="headerlink" title="Spring定义事务属性几种方式"></a>Spring定义事务属性几种方式</h2><ul>
-<li><p>事务的传播行为(Propagation Behavisor)</p>
-<ul>
-<li><p><code>required: 支持当前事务，如果当前没有事务，就新建一个事务（默认）</code></p>
-</li>
-<li><p><code>supports: 支持当前事务，如果当前没有事务，就以非事务方式执行</code></p>
-</li>
-<li><p><code>mandatory: 支持当前事务，如果当前没有事务，就抛出异常</code></p>
-</li>
-<li><p><code>requires_new: 新建事务，如果当前存在事务，把当前事务挂起</code></p>
-</li>
-<li><p><code>not_supported: 以非事务方式执行操作，如果当前存在事务，就把当前事务挂起</code></p>
-</li>
-<li><p><code>never: 以非事务方式执行，如果当前存在事务，则抛出异常</code></p>
-</li>
-<li><p><code>nested: 如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与propagation_required类似的操作</code></p>
-</li>
-</ul>
-</li>
-<li><p><a href="http://uule.iteye.com/blog/1445678">事务的隔离级别(Isolation)</a></p>
-</li>
-<li><p>事务的超时时间(Timeout)</p>
-</li>
-<li><p>是否为只读事务(ReadOnly)</p>
-</li>
+<li><a href="http://uule.iteye.com/blog/1445678">事务的隔离级别(Isolation)</a></li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1150,305 +1408,6 @@
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/30/a-starry-sky/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FengTao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FengTao's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/30/a-starry-sky/" itemprop="url">
-                  星空，六月末的惊喜
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-30T00:00:00+08:00">
-                2015-06-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>杨柳青青江水平，闻郎岸上踏歌声。<br>东边日出西边雨，道是无晴却有晴。</p>
-</blockquote>
-<p><img src="/images/star.jpg" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/06/30/a-starry-sky/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/27/play-pressure/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="FengTao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FengTao's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/27/play-pressure/" itemprop="url">
-                  压力这玩意儿
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-27T00:00:00+08:00">
-                2015-06-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>生于忧患，死于安乐。</p>
-</blockquote>
-<p>心急是一种病，得治！压力是一种心理战术，需冷静和睿智！</p>
-<p>压力，其实来自于自己想尽短时间内解决问题，但往往是相反，因为既然产生压力，便不会很容易就得到解决，也不能心急一股劲想完成，做事一旦心急，便不能长期坚持做好。</p>
-<p>正确的方法：压力分解。分析形成压力的原因，将难以解决的问题进行分解，逐步解决每个环节，过度一个时间段，便会发现这些环节串在一起就是之前形成的压力，也便是消除压力的时间点。其间，环节的分解和时间段的过度及把握是关键！这将决定自己的能力和解决问题的效率，值得注意的应是这两点的学习、积累和不断的坚持。</p>
-<p>无聊之想，仅作警示。</p>
-
-          
         
       
     </div>
@@ -1530,7 +1489,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1632,7 +1591,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

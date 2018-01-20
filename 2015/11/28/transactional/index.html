@@ -88,48 +88,18 @@
 
 
 <meta name="description" content="Spring定义事务属性几种方式
-事务的传播行为(Propagation Behavisor)
-
-required: 支持当前事务，如果当前没有事务，就新建一个事务（默认）
-
-supports: 支持当前事务，如果当前没有事务，就以非事务方式执行
-
-mandatory: 支持当前事务，如果当前没有事务，就抛出异常
-
-requires_new: 新建事务，如果当前存在事务，把当前事务挂起
-
-not_">
+事务的隔离级别(Isolation)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="事务浅识">
 <meta property="og:url" content="http://yoursite.com/2015/11/28/transactional/index.html">
 <meta property="og:site_name" content="FengTao's Blog">
 <meta property="og:description" content="Spring定义事务属性几种方式
-事务的传播行为(Propagation Behavisor)
-
-required: 支持当前事务，如果当前没有事务，就新建一个事务（默认）
-
-supports: 支持当前事务，如果当前没有事务，就以非事务方式执行
-
-mandatory: 支持当前事务，如果当前没有事务，就抛出异常
-
-requires_new: 新建事务，如果当前存在事务，把当前事务挂起
-
-not_">
-<meta property="og:updated_time" content="2017-11-20T14:19:18.111Z">
+事务的隔离级别(Isolation)">
+<meta property="og:updated_time" content="2018-01-20T13:42:14.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事务浅识">
 <meta name="twitter:description" content="Spring定义事务属性几种方式
-事务的传播行为(Propagation Behavisor)
-
-required: 支持当前事务，如果当前没有事务，就新建一个事务（默认）
-
-supports: 支持当前事务，如果当前没有事务，就以非事务方式执行
-
-mandatory: 支持当前事务，如果当前没有事务，就抛出异常
-
-requires_new: 新建事务，如果当前存在事务，把当前事务挂起
-
-not_">
+事务的隔离级别(Isolation)">
 
 
 
@@ -387,6 +357,10 @@ not_">
 
       
         <h2 id="Spring定义事务属性几种方式"><a href="#Spring定义事务属性几种方式" class="headerlink" title="Spring定义事务属性几种方式"></a>Spring定义事务属性几种方式</h2><ul>
+<li><a href="http://uule.iteye.com/blog/1445678" target="_blank" rel="external">事务的隔离级别(Isolation)</a></li>
+</ul>
+<a id="more"></a>
+<ul>
 <li><p>事务的传播行为(Propagation Behavisor)</p>
 <ul>
 <li><p><code>required: 支持当前事务，如果当前没有事务，就新建一个事务（默认）</code></p>
@@ -405,14 +379,11 @@ not_">
 </li>
 </ul>
 </li>
-<li><p><a href="http://uule.iteye.com/blog/1445678" target="_blank" rel="external">事务的隔离级别(Isolation)</a></p>
-</li>
 <li><p>事务的超时时间(Timeout)</p>
 </li>
 <li><p>是否为只读事务(ReadOnly)</p>
 </li>
 </ul>
-<a id="more"></a>
 <h2 id="Dao-or-Service配置事务"><a href="#Dao-or-Service配置事务" class="headerlink" title="Dao or Service配置事务"></a>Dao or Service配置事务</h2><blockquote>
 <p>Spring事务为业务逻辑进行事务管理，保证业务逻辑上数据的原子性。</p>
 </blockquote>
@@ -563,7 +534,7 @@ not_">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -681,7 +652,7 @@ not_">
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

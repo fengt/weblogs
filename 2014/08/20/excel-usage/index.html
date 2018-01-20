@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://yoursite.com/2014/08/20/excel-usage/index.html">
 <meta property="og:site_name" content="FengTao's Blog">
 <meta property="og:description" content="1. 设置日期每5分钟递增填充：1234567=TEXT(TIME(HOUR(D1),MINUTE(D1)+5,0),&amp;quot;h:MM&amp;quot;)DATE(YEAR(D1),MONTH(D1),DAY(TIME(HOUR(D1),MINUTE(D1)+5,0)))=YEAR(D1)&amp;amp;&amp;quot;-&amp;quot;&amp;amp;MONTH(D1)&amp;amp;&amp;quot;-&amp;quot;&amp;amp;D">
-<meta property="og:updated_time" content="2016-12-27T14:26:39.000Z">
+<meta property="og:updated_time" content="2018-01-20T13:43:32.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Excel公式及函数使用">
 <meta name="twitter:description" content="1. 设置日期每5分钟递增填充：1234567=TEXT(TIME(HOUR(D1),MINUTE(D1)+5,0),&amp;quot;h:MM&amp;quot;)DATE(YEAR(D1),MONTH(D1),DAY(TIME(HOUR(D1),MINUTE(D1)+5,0)))=YEAR(D1)&amp;amp;&amp;quot;-&amp;quot;&amp;amp;MONTH(D1)&amp;amp;&amp;quot;-&amp;quot;&amp;amp;D">
@@ -354,8 +354,8 @@
 
       
         <h3 id="1-设置日期每5分钟递增填充："><a href="#1-设置日期每5分钟递增填充：" class="headerlink" title="1. 设置日期每5分钟递增填充："></a>1. 设置日期每5分钟递增填充：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">=TEXT(TIME(HOUR(D1),MINUTE(D1)+5,0),&quot;h:MM&quot;)</div><div class="line"></div><div class="line">DATE(YEAR(D1),MONTH(D1),DAY(TIME(HOUR(D1),MINUTE(D1)+5,0)))</div><div class="line"></div><div class="line">=YEAR(D1)&amp;&quot;-&quot;&amp;MONTH(D1)&amp;&quot;-&quot;&amp;DAY(D1)&amp;&quot; &quot;&amp;HOUR(D1)&amp;&quot;:&quot;&amp;MINUTE(D1)+5&amp;&quot;:&quot;&amp;SECOND(D1)</div><div class="line"></div><div class="line">=TEXT(YEAR(D1)&amp;&quot;/&quot;&amp;MONTH(D1)&amp;&quot;/&quot;&amp;DAY(D1)&amp;&quot; &quot;&amp;HOUR(D1)&amp;&quot;:&quot;&amp;MINUTE(D1)+5,&quot;yyyy/m/d h:mm&quot;)</div></pre></td></tr></table></figure>
-<h3 id="2-将excel中的多个工作表追加合成一个工作表："><a href="#2-将excel中的多个工作表追加合成一个工作表：" class="headerlink" title="2. 将excel中的多个工作表追加合成一个工作表："></a>2. 将excel中的多个工作表追加合成一个工作表：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Sub Merge()</div><div class="line">For j = 1 To Sheets.Count</div><div class="line">If Sheets(j).Name &lt;&gt; ActiveSheet.Name Then</div><div class="line">X = Range(&quot;A65536&quot;).End(xlUp).Row</div><div class="line">Sheets(j).UsedRange.Copy Cells(X, 1)</div><div class="line">End If</div><div class="line">Next</div><div class="line">End Sub</div></pre></td></tr></table></figure>
 <a id="more"></a>
+<h3 id="2-将excel中的多个工作表追加合成一个工作表："><a href="#2-将excel中的多个工作表追加合成一个工作表：" class="headerlink" title="2. 将excel中的多个工作表追加合成一个工作表："></a>2. 将excel中的多个工作表追加合成一个工作表：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Sub Merge()</div><div class="line">For j = 1 To Sheets.Count</div><div class="line">If Sheets(j).Name &lt;&gt; ActiveSheet.Name Then</div><div class="line">X = Range(&quot;A65536&quot;).End(xlUp).Row</div><div class="line">Sheets(j).UsedRange.Copy Cells(X, 1)</div><div class="line">End If</div><div class="line">Next</div><div class="line">End Sub</div></pre></td></tr></table></figure>
 <h3 id="3-从地址中抓取区名称："><a href="#3-从地址中抓取区名称：" class="headerlink" title="3. 从地址中抓取区名称："></a>3. 从地址中抓取区名称：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">= IFERROR (</div><div class="line">     MID (</div><div class="line">          N2,</div><div class="line">          FIND (&quot;市&quot;, N2, 1) + 1,</div><div class="line">          IFERROR (</div><div class="line">               FIND (&quot;区&quot;, N2, FIND(&quot;市&quot;, N2, 1)) - FIND (&quot;市&quot;, N2, 1),</div><div class="line">               FIND (&quot;县&quot;, N2, FIND(&quot;市&quot;, N2, 1)) - FIND (&quot;市&quot;, N2, 1)</div><div class="line">          )</div><div class="line">     ),</div><div class="line">     &quot;&quot;</div><div class="line">)</div></pre></td></tr></table></figure>
 <h3 id="4-根据一列-A-值和某个sheet表中一列-B-值匹配，并将B列对应的其他列值返回给A列与之对应："><a href="#4-根据一列-A-值和某个sheet表中一列-B-值匹配，并将B列对应的其他列值返回给A列与之对应：" class="headerlink" title="4. 根据一列(A)值和某个sheet表中一列(B)值匹配，并将B列对应的其他列值返回给A列与之对应："></a>4. 根据一列(A)值和某个sheet表中一列(B)值匹配，并将B列对应的其他列值返回给A列与之对应：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">=IF(ISERROR(VLOOKUP(A1,Sheet2!A$1:C$905,2,FALSE)),&quot;&quot;,VLOOKUP(A1,Sheet2!A$1:C$905,2,FALSE))</div></pre></td></tr></table></figure>
 <h3 id="5-合并计算："><a href="#5-合并计算：" class="headerlink" title="5. 合并计算："></a>5. 合并计算：</h3><ul>
@@ -495,7 +495,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -613,7 +613,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
