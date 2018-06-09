@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="capistrano," />
 
 
 
@@ -87,37 +87,16 @@
 
 
 
-<meta name="description" content="远程操作
-克隆某分支仓库
-
-1$ git clone -b &amp;lt;branch&amp;gt; &amp;lt;remote_repo&amp;gt;
-
-添加远程主机(rhost)的仓库
-
-1$ git remote add rhost https://github.com/xxx/demo.git">
+<meta name="description" content="Install RVM123$ curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -$ curl -sSL https://get.rvm.io | bash -s stable$ rvm install 2.1.5">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git常用命令">
-<meta property="og:url" content="http://yoursite.com/2016/01/01/git-in-common-use/index.html">
+<meta property="og:title" content="Capistrano Auto Deploy">
+<meta property="og:url" content="http://yoursite.com/2016/08/20/capistrano-deploy/index.html">
 <meta property="og:site_name" content="FengTao's Blog">
-<meta property="og:description" content="远程操作
-克隆某分支仓库
-
-1$ git clone -b &amp;lt;branch&amp;gt; &amp;lt;remote_repo&amp;gt;
-
-添加远程主机(rhost)的仓库
-
-1$ git remote add rhost https://github.com/xxx/demo.git">
-<meta property="og:updated_time" content="2018-01-20T13:40:24.905Z">
+<meta property="og:description" content="Install RVM123$ curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -$ curl -sSL https://get.rvm.io | bash -s stable$ rvm install 2.1.5">
+<meta property="og:updated_time" content="2018-06-09T15:43:05.103Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git常用命令">
-<meta name="twitter:description" content="远程操作
-克隆某分支仓库
-
-1$ git clone -b &amp;lt;branch&amp;gt; &amp;lt;remote_repo&amp;gt;
-
-添加远程主机(rhost)的仓库
-
-1$ git remote add rhost https://github.com/xxx/demo.git">
+<meta name="twitter:title" content="Capistrano Auto Deploy">
+<meta name="twitter:description" content="Install RVM123$ curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -$ curl -sSL https://get.rvm.io | bash -s stable$ rvm install 2.1.5">
 
 
 
@@ -145,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/01/01/git-in-common-use/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/20/capistrano-deploy/"/>
 
 
 
 
 
-  <title> git常用命令 | FengTao's Blog </title>
+  <title> Capistrano Auto Deploy | FengTao's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -280,7 +259,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/01/git-in-common-use/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/20/capistrano-deploy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="FengTao">
@@ -301,7 +280,7 @@
             
             
               
-                git常用命令
+                Capistrano Auto Deploy
               
             
           </h1>
@@ -316,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-01T00:00:00+08:00">
-                2016-01-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-20T00:00:00+08:00">
+                2016-08-20
               </time>
             
 
@@ -374,100 +353,27 @@
       
 
       
-        <h3 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h3><ul>
-<li><em>克隆某分支仓库</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone -b &lt;branch&gt; &lt;remote_repo&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li><em>添加远程主机(rhost)的仓库</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote add rhost https://github.com/xxx/demo.git</div></pre></td></tr></table></figure>
+        <h3 id="Install-RVM"><a href="#Install-RVM" class="headerlink" title="Install RVM"></a>Install RVM</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -</div><div class="line">$ curl -sSL https://get.rvm.io | bash -s stable</div><div class="line">$ rvm install 2.1.5</div></pre></td></tr></table></figure>
 <a id="more"></a>
+<h3 id="Replace-mirror"><a href="#Replace-mirror" class="headerlink" title="Replace mirror"></a>Replace mirror</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ gem sources -l</div><div class="line">$ gem sources --remove https://rubygems.org/</div><div class="line">$ gem sources --add https://ruby.taobao.org/</div></pre></td></tr></table></figure>
+<h3 id="Execute-command-at-home-directory"><a href="#Execute-command-at-home-directory" class="headerlink" title="Execute command at home directory"></a>Execute command at home directory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gem install capistrano</div></pre></td></tr></table></figure>
+<h3 id="Initial-capistrano-at-project-root-directory"><a href="#Initial-capistrano-at-project-root-directory" class="headerlink" title="Initial capistrano at project root directory"></a>Initial capistrano at project root directory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cap install</div></pre></td></tr></table></figure>
+<h3 id="SSH-login-in-without-password-config"><a href="#SSH-login-in-without-password-config" class="headerlink" title="SSH login in without password config"></a>SSH login in without password config</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ scp id_rsa.pub remote@ip:~/.ssh</div><div class="line">$ cat id_rsa.pub &gt;&gt; authorized_keys</div></pre></td></tr></table></figure>
 <ul>
-<li><em>显示远程主机详细信息</em></li>
+<li>or, use <code>ssh-keygen</code> regenerate ssh key</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote show origin</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa</div></pre></td></tr></table></figure>
 <ul>
-<li><em>推送新分支dev到远程主机分支dev</em></li>
+<li>copy public key to remote server</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin dev:dev</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat ~/.ssh/id_rsa.pub | ssh user@hostname &apos;cat &gt;&gt; .ssh/authorized_keys&apos;</div></pre></td></tr></table></figure>
 <ul>
-<li><em>标签推送</em></li>
+<li>note: if it run fail, change this file’s permission</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git push origin v1.5</div><div class="line">or</div><div class="line">$ git push origin --tags</div></pre></td></tr></table></figure>
-<h3 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h3><ul>
-<li><em>新建分支dev并切换到该分支</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b dev</div><div class="line">or</div><div class="line">$ git branch dev</div><div class="line">$ git checkout dev</div></pre></td></tr></table></figure>
-<ul>
-<li><em>查看别人推送分支并与本地建立追踪</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git fetch</div><div class="line">$ git checkout -t origin/branch</div></pre></td></tr></table></figure>
-<ul>
-<li><em>重命名分支dev为develop</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -m dev develop</div></pre></td></tr></table></figure>
-<ul>
-<li><em>提交时显示所有diff信息</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git commit -v</div></pre></td></tr></table></figure>
-<ul>
-<li><em>放弃当前正在合并分支</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git merge --abort</div><div class="line">or</div><div class="line">$ git reset --merge MERGE_HEAD</div></pre></td></tr></table></figure>
-<ul>
-<li><em>删除分支</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -d [name]</div></pre></td></tr></table></figure>
-<ul>
-<li><em>先预览(加参数-n)，剔除版本控制</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git rm -f -n --cached .DS_Store</div><div class="line">$ git rm -f --cached .DS_Store</div></pre></td></tr></table></figure>
-<ul>
-<li><em>查看文件的每一行是哪个提交最后修改的</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git blame filename</div></pre></td></tr></table></figure>
-<ul>
-<li><em>查看今天或截止6天前写了多少行代码</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git diff --shortstat</div><div class="line">or</div><div class="line">$ git diff --shortstat &quot;@&#123;6 day ago&#125;&quot;</div></pre></td></tr></table></figure>
-<h3 id="git-log操作"><a href="#git-log操作" class="headerlink" title="git log操作"></a>git log操作</h3><ul>
-<li><em>查看文件的每一个详细的历史修改，如果没有-p选项，只显示提交记录，不显示文件内容修改，git log -p -3 filename 显示最近的3次提交</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log -p filename</div></pre></td></tr></table></figure>
-<ul>
-<li><em>每一行显示一个提交，先显示哈希码，再显示提交说明</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log --pretty=oneline filename</div></pre></td></tr></table></figure>
-<ul>
-<li><em>查看自己某人最后提交的N条记录</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git log —oneline -n 5 —author=username</div><div class="line">or </div><div class="line">$ git log -n 5 —author=username</div></pre></td></tr></table></figure>
-<h3 id="git-stash-用法"><a href="#git-stash-用法" class="headerlink" title="git stash 用法"></a>git stash 用法</h3><ul>
-<li><em>备份当前的工作区的内容，从最近的一次提交中读取相关内容，让工作区保证和上次提交的内容一致。同时，将当前的工作区内容保存到Git栈中</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash</div></pre></td></tr></table></figure>
-<ul>
-<li><em>显示Git栈内的所有备份，可以利用这个列表来决定从那个地方恢复</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash list</div></pre></td></tr></table></figure>
-<ul>
-<li><em>将工作应用回来</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash apply</div></pre></td></tr></table></figure>
-<ul>
-<li><em>从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。由于可能存在多个Stash的内容，所以用栈来管理，pop会从最近的一个stash中读取内容并恢复</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash pop</div></pre></td></tr></table></figure>
-<ul>
-<li><em>指定版本号为stash@{1}的工作取出来</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash apply stash@&#123;1&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><em>清空Git栈</em></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash clear</div></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ chmod 700 ~/.ssh</div><div class="line">$ chmod 600 ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
+<h3 id="Go-to-the-project-root-directory-and-exe-below-command"><a href="#Go-to-the-project-root-directory-and-exe-below-command" class="headerlink" title="Go to the project root directory and exe below command"></a>Go to the project root directory and exe below command</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gem install capistrano</div></pre></td></tr></table></figure>
+<h3 id="Deploy-or-stop-project-according-to-profile"><a href="#Deploy-or-stop-project-according-to-profile" class="headerlink" title="Deploy or stop project according to profile"></a>Deploy or stop project according to profile</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cap [production | develop | test] deploy</div><div class="line">$ cap [production | develop | test] deploy:stop</div></pre></td></tr></table></figure>
+<h3 id="Lastly-about-the-process-analysis："><a href="#Lastly-about-the-process-analysis：" class="headerlink" title="Lastly, about the process analysis："></a>Lastly, about the process analysis：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">拉取git 服务上最新代码（默认dev分支），上传到要发布服务的repo;</div><div class="line">在releases目录，根据时间戳进行编译；</div><div class="line">连接current指向该时间戳；</div><div class="line">revisions.log 记录操作日志；</div><div class="line">shared 存放运行进程信息等；</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -496,7 +402,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/capistrano/" rel="tag"># capistrano</a>
           
         </div>
       
@@ -509,8 +415,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/28/transactional/" rel="next" title="事务浅识">
-                <i class="fa fa-chevron-left"></i> 事务浅识
+              <a href="/2016/07/10/simply-use-siege/" rel="next" title="siege的简单使用">
+                <i class="fa fa-chevron-left"></i> siege的简单使用
               </a>
             
           </div>
@@ -519,8 +425,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/10/simply-use-siege/" rel="prev" title="siege的简单使用">
-                siege的简单使用 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/10/heart-you-should-know/" rel="prev" title="你不知的心声">
+                你不知的心声 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -688,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#远程操作"><span class="nav-number">1.</span> <span class="nav-text">远程操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地操作"><span class="nav-number">2.</span> <span class="nav-text">本地操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-log操作"><span class="nav-number">3.</span> <span class="nav-text">git log操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-stash-用法"><span class="nav-number">4.</span> <span class="nav-text">git stash 用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-RVM"><span class="nav-number">1.</span> <span class="nav-text">Install RVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Replace-mirror"><span class="nav-number">2.</span> <span class="nav-text">Replace mirror</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Execute-command-at-home-directory"><span class="nav-number">3.</span> <span class="nav-text">Execute command at home directory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Initial-capistrano-at-project-root-directory"><span class="nav-number">4.</span> <span class="nav-text">Initial capistrano at project root directory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH-login-in-without-password-config"><span class="nav-number">5.</span> <span class="nav-text">SSH login in without password config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Go-to-the-project-root-directory-and-exe-below-command"><span class="nav-number">6.</span> <span class="nav-text">Go to the project root directory and exe below command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-or-stop-project-according-to-profile"><span class="nav-number">7.</span> <span class="nav-text">Deploy or stop project according to profile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lastly-about-the-process-analysis："><span class="nav-number">8.</span> <span class="nav-text">Lastly, about the process analysis：</span></a></li></ol></div>
             
 
           </div>
